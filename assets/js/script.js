@@ -1,12 +1,63 @@
-VANTA.GLOBE({
-   el: "#your-element-selector",
-   mouseControls: true,
-   touchControls: true,
-   gyroControls: false,
-   minHeight: 200.00,
-   minWidth: 200.00,
-   scale: 1.00,
-   scaleMobile: 1.00,
-   size: 0.7
- })
+// // alert("hello, gulp");
+
+// const body = document.body;
+// const menuBtn = document.querySelector('.icon__menu');
+// const menuBody = document.querySelector('.menu__body');
+
+
+
+// menuBtn.addEventListener('click', function () {
+//    menuBtn.classList.toggle('_active');
+//    menuBody.classList.toggle('_active');
+//    body.classList.toggle('_lock');
+// });
+
+
+// Select DOM Items
+const body = document.body;
+const menuBtn = document.querySelector('.menu-btn');
+const menu = document.querySelector('.menu');
+const menuNav = document.querySelector('.menu-nav');
+const menuBranding = document.querySelector('.menu-branding');
+const navItems = document.querySelectorAll('.nav-item');
+
+
+// Set Initial State of Menu
+
+let showMenu = false;
+
+menuBtn.addEventListener('click', toggleMenu);
+
+function toggleMenu() {
+   if (!showMenu) {
+      menuBtn.classList.add('close');
+      menu.classList.add('show');
+      menuNav.classList.add('show');
+      menuBranding.classList.add('show');
+      navItems.forEach(item => item.classList.add('show'));
+      body.classList.add('_lock');
+      //Set Menu State
+      showMenu = true;
+   } else {
+      menuBtn.classList.remove('close');
+      menu.classList.remove('show');
+      menuNav.classList.remove('show');
+      menuBranding.classList.remove('show');
+      navItems.forEach(item => item.classList.remove('show'));
+      body.classList.remove('_lock');
+
+      //Set Menu State
+      showMenu = false;
+   }
+}
+
+window.addEventListener('scroll', function () {
+   let scrollPos = window.scrollY;
+
+   if (scrollPos > 50) {
+      menuBtn.classList.add('hidden');
+   } else {
+      menuBtn.classList.remove('hidden');
+   }
+});
 
