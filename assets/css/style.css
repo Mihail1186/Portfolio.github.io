@@ -524,7 +524,7 @@ h3.sm-heading {
 }
 
 .projects__link {
-  display: inline-block;
+  /* display: inline-block; */
 }
 
 .projects__img {
